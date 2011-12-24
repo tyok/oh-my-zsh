@@ -40,13 +40,13 @@ function tyok_git_prompt_info() {
   echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$(tyok_git_prompt_status)$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
-function tyok_ruby_version() {
-  ver=$(ruby --version | sed 's/\ (.*//g' 2> /dev/null)
+function tyok_rbenv_version() {
+  ver=$(rbenv version-name 2> /dev/null)
   echo "${ver}"
 }
 
 PROMPT='
-%{${fg[green]}%}%n %{${fg_bold[blue]}%}:: %{${fg_bold[magenta]}%}%3~ %{${fg_bold[black]}%}$(tyok_ruby_version) %{$reset_color%}$(tyok_git_prompt_info)
+%{${fg[green]}%}%n %{${fg_bold[blue]}%}:: %{${fg_bold[magenta]}%}%3~ %{${fg_bold[black]}%}$(tyok_rbenv_version) %{$reset_color%}$(tyok_git_prompt_info)
 %{${fg_bold[$CARETCOLOR]}%}»%{${reset_color}%} '
 
 RPS1="${return_code}"
