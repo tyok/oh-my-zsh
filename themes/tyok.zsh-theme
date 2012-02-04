@@ -58,3 +58,5 @@ ZSH_THEME_GIT_PROMPT_ADDED="…"
 ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[red]%}!"
 ZSH_THEME_TERM_TITLE_IDLE="%c"
 ZSH_THEME_TERM_TAB_TITLE_IDLE="%15<..<%c%<<" #15 char left truncated PWD
+
+# vim: ft=zsh:
