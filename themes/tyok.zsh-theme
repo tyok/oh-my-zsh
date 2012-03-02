@@ -49,7 +49,7 @@ PROMPT='
 %{${fg[green]}%}%n %{${fg_bold[blue]}%}:: %{${fg_bold[magenta]}%}%3~ %{${fg_bold[black]}%}$(tyok_rbenv_version) %{$reset_color%}$(tyok_git_prompt_info)
 %{${fg_bold[$CARETCOLOR]}%}»%{${reset_color}%} '
 
-RPS1="${return_code}"
+# RPS1="${return_code}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[yellow]%}› %{$reset_color%}"
