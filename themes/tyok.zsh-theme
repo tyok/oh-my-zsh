@@ -6,23 +6,23 @@ tyok_git_prompt_status() {
   INDEX=$(git status --porcelain 2> /dev/null)
   STATUS=""
 
-  if $(echo "$INDEX" | grep '^?? ' &> /dev/null); then
+  if [ "${INDEX#?? }" != "$INDEX" ]; then
     STATUS="$ZSH_THEME_GIT_PROMPT_UNTRACKED$STATUS"
   fi
 
-  if $(echo "$INDEX" | grep '^ M ' &> /dev/null); then
+  if [ "${INDEX# M }" != "$INDEX" ]; then
     STATUS="$ZSH_THEME_GIT_PROMPT_MODIFIED$STATUS"
-  elif $(echo "$INDEX" | grep '^AM ' &> /dev/null); then
+  elif [ "${INDEX#AM }" != "$INDEX" ]; then
     STATUS="$ZSH_THEME_GIT_PROMPT_MODIFIED$STATUS"
-  elif $(echo "$INDEX" | grep '^ T ' &> /dev/null); then
+  elif [ "${INDEX# T }" != "$INDEX" ]; then
     STATUS="$ZSH_THEME_GIT_PROMPT_MODIFIED$STATUS"
-  elif $(echo "$INDEX" | grep '^R  ' &> /dev/null); then
+  elif [ "${INDEX#R  }" != "$INDEX" ]; then
     STATUS="$ZSH_THEME_GIT_PROMPT_MODIFIED$STATUS"
-  elif $(echo "$INDEX" | grep '^UU ' &> /dev/null); then
+  elif [ "${INDEX#UU }" != "$INDEX" ]; then
     STATUS="$ZSH_THEME_GIT_PROMPT_MODIFIED$STATUS"
-  elif $(echo "$INDEX" | grep '^ D ' &> /dev/null); then
+  elif [ "${INDEX# D }" != "$INDEX" ]; then
     STATUS="$ZSH_THEME_GIT_PROMPT_MODIFIED$STATUS"
-  elif $(echo "$INDEX" | grep '^AD ' &> /dev/null); then
+  elif [ "${INDEX#AD }" != "$INDEX" ]; then
     STATUS="$ZSH_THEME_GIT_PROMPT_MODIFIED$STATUS"
   fi
 
