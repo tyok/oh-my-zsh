@@ -6,7 +6,7 @@ tyok_git_prompt_status() {
   INDEX=$(git status --porcelain 2> /dev/null)
   STATUS=""
 
-  if [ "${INDEX#?? }" != "$INDEX" ]; then
+  if [ "${INDEX#\?\? }" != "$INDEX" ]; then
     STATUS="$ZSH_THEME_GIT_PROMPT_UNTRACKED$STATUS"
   fi
 
@@ -42,11 +42,11 @@ function tyok_git_prompt_info() {
 
 function tyok_rbenv_version() {
   ver=$(rbenv version-name 2> /dev/null)
-  echo "${ver}"
+  echo "${ver} "
 }
 
-PROMPT='
-%{${fg[green]}%}%n %{${fg_bold[blue]}%}:: %{${fg_bold[magenta]}%}%3~ %{${fg_bold[black]}%}$(tyok_rbenv_version) %{$reset_color%}$(tyok_git_prompt_info)
+PS1='
+%{${fg[green]}%}%n %{${fg_bold[blue]}%}:: %{${fg_bold[magenta]}%}%3~ %{${fg_bold[black]}%}$(tyok_rbenv_version)%{$reset_color%}$(tyok_git_prompt_info)
 %{${fg_bold[$CARETCOLOR]}%}»%{${reset_color}%} '
 
 # RPS1="${return_code}"
