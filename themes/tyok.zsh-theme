@@ -46,16 +46,16 @@ function tyok_rbenv_version() {
 }
 
 PS1='
-%{${fg[green]}%}%n %{${fg_bold[blue]}%}:: %{${fg_bold[magenta]}%}%3~ %{${fg_bold[black]}%}$(tyok_rbenv_version)%{$reset_color%}$(tyok_git_prompt_info)
-%{${fg_bold[$CARETCOLOR]}%}»%{${reset_color}%} '
+%{$fg_bold[$CARETCOLOR]%}%n %{$fg_bold[black]%}:: %{$fg_bold[black]%}%3~ $(tyok_git_prompt_info)
+%{$fg_bold[$CARETCOLOR]%}»%{${reset_color}%} '
 
 # RPS1="${return_code}"
 
-ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
+ZSH_THEME_GIT_PROMPT_PREFIX="%{${reset_color}%}%{$fg[yellow]%}‹"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[yellow]%}› %{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="?"
 ZSH_THEME_GIT_PROMPT_ADDED="…"
-ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[red]%}!"
+ZSH_THEME_GIT_PROMPT_MODIFIED="!"
 ZSH_THEME_TERM_TITLE_IDLE="%c"
 ZSH_THEME_TERM_TAB_TITLE_IDLE="%15<..<%c%<<" #15 char left truncated PWD
 
